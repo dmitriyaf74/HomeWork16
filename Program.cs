@@ -5,20 +5,20 @@ namespace HomeWork16
 {
     internal class Program
     {
-        private static Quadcopter _Quadcopter = new Quadcopter();
+        private static IFlyingRobot _Fly_Quadcopter = new Quadcopter();
 
 
         public static void Main(string[] args)
         {
-            IFlyingRobot Fly_Quadcopter = _Quadcopter;
-            IChargeable  Ch_Quadcopter  = _Quadcopter;
+            IChargeable  _Ch_Quadcopter  = _Fly_Quadcopter as IChargeable;
 
             Console.WriteLine("Hello, World!");
-            Console.WriteLine(Fly_Quadcopter.GetInfo());
+            Console.WriteLine($"IFlyingRobot: {_Fly_Quadcopter.GetInfo()}");
+            Console.WriteLine($"IChargeable: {_Ch_Quadcopter.GetInfo()}");
 
-            Console.WriteLine(String.Join("\n", Fly_Quadcopter.GetComponents()));
+            Console.WriteLine(String.Join("\n", _Fly_Quadcopter.GetComponents()));
 
-            Ch_Quadcopter.Charge();
+            _Ch_Quadcopter.Charge();
         }
     }
 }
