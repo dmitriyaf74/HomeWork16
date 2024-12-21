@@ -20,6 +20,10 @@ namespace HomeWork16.Classes
         {
             return (this as IFlyingRobot).GetRobotType();
         }
+        public string GetObjectTest()
+        {
+            return "Object test";
+        }
 
         void IChargeable.Charge()
         {
